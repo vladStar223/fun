@@ -38,22 +38,26 @@ void print_vector(vector<double>& v) {
 	}
 	cout <<""<<endl;
 }//print random vector
-int fib(int n) {
-	if (n == 1||n==2) {
-		return 1;
+
+int factorial_search(int a) {
+	int n = a;
+	int i = 1;
+	if (n < 2) {
+			return i;
 	}
 	else {
-		return fib(n - 2) + fib(n - 1);
+			return n * factorial_search(n - 1);
 	}
-	
+}
+long  long poow(long long x,long long n) {
+	return poow()
 }
 int main()
 {
 	srand(time(NULL));
-	int n = 1;
-	cout << "Input n in fib" << endl;
-	cin >> n;
-	cout << fib(n) << endl;
+	int eps = 1;
+	cout << poow(3,4) << endl;
+
 	
 
 
