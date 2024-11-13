@@ -10,8 +10,11 @@ double s_triangle(double(&a)[2], double(&b)[2], double(&c)[2]){
 
 	return 0.5*(a[0]*(b[1]-c[1])+b[0]*(c[1]-a[1])+c[0]*(a[1]-b[1]));
 }
-vector<double>(2) half_cor(double(&a)[2]) {
+vector<double> half_cor(double(&a)[2], double(&b)[2]) {
 	vector<double>s(2);
+	s[0] = (a[0] + b[0]) / 2;
+	s[0] = (a[1] + b[1]) / 2;
+	return s;
 
 }
 
@@ -36,6 +39,8 @@ int main()
 		}
 
 	}
+	cout << "S ABS = " << " " << s_triangle(a, b, c) << endl;
+	cout << "S LMN =" << " " << endl;
 
 
 
