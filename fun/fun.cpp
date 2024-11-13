@@ -6,7 +6,7 @@
 #include <random>
 
 using namespace std;
-double s_triangle(double(&a)[2], double(&b)[2], double(&c)[2]){
+double s_triangle(vector<double>& a, vector<double>& b, vector<double>& c){
 
 	return 0.5*(a[0]*(b[1]-c[1])+b[0]*(c[1]-a[1])+c[0]*(a[1]-b[1]));
 }
@@ -21,9 +21,9 @@ vector<double> half_cor(double(&a)[2], double(&b)[2]) {
 int main()
 {
 	srand(time(NULL));
-	double a[2];
-	double b[2];
-	double c[2];
+	vector<double>a(2);
+	vector<double> b(2);
+	vector<double>c(2);
 	string v = "ABC";
 	for (int i = 0; i < 3; i++) {
 		cout << "Input x y" << v[i] << endl;
@@ -39,8 +39,13 @@ int main()
 		}
 
 	}
-	cout << "S ABS = " << " " << s_triangle(a, b, c) << endl;
-	cout << "S LMN =" << " " << endl;
+	double s_abs = s_triangle(a, b, c);
+	cout << "S ABS = " << " " << s_abs << endl;
+	vector<double>l = half_cor(a, b);
+	//double s_lmn = s_triangle();
+	//cout << "S LMN = " << " " << s_lmn << endl;
+
+	
 
 
 
