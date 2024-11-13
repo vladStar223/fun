@@ -38,9 +38,22 @@ void print_vector(vector<double>& v) {
 	}
 	cout <<""<<endl;
 }//print random vector
+int fib(int n) {
+	if (n == 1||n==2) {
+		return 1;
+	}
+	else {
+		return fib(n - 2) + fib(n - 1);
+	}
+	
+}
 int main()
 {
 	srand(time(NULL));
+	int n = 1;
+	cout << "Input n in fib" << endl;
+	cin >> n;
+	cout << fib(n) << endl;
 	
 
 
