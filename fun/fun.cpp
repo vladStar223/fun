@@ -39,24 +39,44 @@ void print_vector(vector<double>& v) {
 	cout <<""<<endl;
 }//print random vector
 
-int factorial_search(int a) {
-	int n = a;
-	int i = 1;
-	if (n < 2) {
-			return i;
+static long long factorial_search(int a) {
+	long long  n = a;
+	if (n<=2) {
+			return n;
 	}
-	else {
-			return n * factorial_search(n - 1);
-	}
+	return n * factorial_search(n - 1);
 }
-long  long poow(long long x,long long n) {
-	return poow()
+static long  long poow(long long x,long long n) {
+	if (n < 0) {
+		return 1;
+	}
+	return x * poow(x, n - 1);
+}
+static long double decide(long double s, long double eps,int n, double x) {
+	if (abs(s)< eps) {
+		return s;
+	}
+	return decide(s + ((static_cast<long double>(pow(x, n))) / (factorial_search(n))), eps, n + 1, x);
 }
 int main()
 {
 	srand(time(NULL));
-	int eps = 1;
-	cout << poow(3,4) << endl;
+	long double eps = 1;
+	double x;
+	do
+	{ 
+		cout << "Input eps" << endl;
+		cin >> eps;
+		cout << "input x" << endl;
+		cin >> x;
+		if (eps > 0 && eps < 1) {
+			break;
+		}
+
+	} while (true);
+	cout << decide(1, eps, 1, x);
+
+	
 
 	
 
