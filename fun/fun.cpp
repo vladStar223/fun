@@ -48,7 +48,7 @@ double search_normal(double(&arr)[n][n]) {
 	double m = abs(arr[0][0]);
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
-			if (abs(arr[i][j]) > m) {
+			if (abs(arr[i][j]) >m) {
 				m = abs(arr[i][j]);
 			}
 		}
@@ -65,8 +65,8 @@ int main()
 	gen_array(a); gen_array(b); gen_array(c); gen_array(d);
 	cout << "matrix genetate" << endl;
 	double x1 = search_normal(a); double x2 = search_normal(b); double x3 = search_normal(c); double x4 = search_normal(d);
-	double m = max({ x1, x2, x3, x4 });
-	cout << "Max is" << " " << m << endl;
+	double m = min({ x1, x2, x3, x4 });
+	cout << "Min is" << " " << m << endl;
 	if (x1 == m) {
 		print_array(a);
 	}
