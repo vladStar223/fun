@@ -7,45 +7,48 @@
 
 using namespace std;
 const int n = 6;
-void print_array(double(&arr)[n][n]);
-void print_vector(vector<double>& v);
-void gen_array(double(&arr)[n][n]) {
+void print_array(double(&arr)[n]);
+void gen_array(double(&arr)[n]) {
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			arr[i][j] = rand();
-		}
+		int start = 0;
+		int end = 100;
+		arr[i] = rand() % (end - start + 1) + start;
 	}
 	print_array(arr);
 }
-void print_array(double(&arr)[n][n]) {
+void print_array(double(&arr)[n]) {
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			cout << arr[i][j] << " ";
-		}
-		cout << "" << endl;
+		cout << arr[i] << " ";
 	}
 	cout << "" << endl;
 }
-void gen_vector(vector<double>& v) {
+void sort_direct(double(&arr)[n]) {
+	
 	for (int i = 0; i < n; i++) {
-		v[i] = rand();
+		int h = 0;
+		int mi = 10000;
+		for (int j = i; j < n; j++) {
+			if (mi>arr[j]) {
+				mi = arr[j];
+				h = j;
+			}
+		}
+		int x = arr[i];
+		arr[i] = arr[h];
+		arr[h] = x;
 	}
-	print_vector(v);
-}//generate random vector len = n
-void print_vector(vector<double>& v) {
-	for (int i = 0; i < n; i++) {
-		cout << v[i] << " ";
-	}
-	cout <<""<<endl;
-}//print random vector
+}
 int main()
 {
 	srand(time(NULL));
 	vector<double>x(n);
 	vector<double>y(n);
-	double a[n][n];
-	double b[n][n];
-	double c[n][n];
+	double a[n];
+	double b[n];
+	double c[n]{};
+	gen_array(a);
+	sort_direct(a);
+	print_array(a);
 	
 
 
