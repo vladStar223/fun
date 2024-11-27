@@ -47,14 +47,17 @@ vector<int> sort_direct_on(double(&arr)[n]) {
 	{
 		int v = arr[i];
 		int x = i;
+		k[1] = k[1] + 1;
 		k[0] = k[0] + 1;
 		while ((x > 0) && (arr[x - 1] > v))
 		{
+			k[0] = k[0] + 1;
 			k[1] = k[1] + 1;
 			arr[x] = arr[x - 1];
 			x = x - 1;
 		}
 		arr[x] = v;
+		k[1] = k[1] + 1;
 	}
 	return k;
 
@@ -69,22 +72,30 @@ void copy_array(double(&arr)[n], double(&arr1)[n]) {
 }
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	srand(time(NULL));
 	vector<double>x(n);
 	vector<double>y(n);
 	double a[n] = {9,8,7,6,5,4};
 	double b[n];
 	double c[n];
-	gen_array(a);
 	cout << "Generate Array " << endl;
-	print_array(a);
-	cout << "Array a " << endl;
+	gen_array(a);
 	copy_array(a, b);
 	copy_array(a, c);
-	sort_direct(a);
+	cout << "Сортировка прямым выбором" << endl;
+	vector<int>k(2);
+	k = sort_direct(a);
 	print_array(a);
-	sort_direct_on(b);
+	
+	cout << "Количество сравнений" << " " <<k[0]<< endl;
+	cout << "Количество перестановок" << " " << k[1] << endl;
+	cout << "Сортировка прямым включением" << endl;
+	k = sort_direct_on(b);
 	print_array(b);
+	cout << "Количество сравнений" << " " << k[0] << endl;
+	cout << "Количество перестановок" << " " << k[1] << endl;
+	
 	//print_array(a);
 	
 
