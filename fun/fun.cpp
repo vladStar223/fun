@@ -22,7 +22,7 @@ void print_array(double(&arr)[n]) {
 	}
 	cout << "" << endl;
 }
-vector<int>(2) sort_direct(double(&arr)[n]) {
+vector<int> sort_direct(double(&arr)[n]) {
 	vector<int>k(2);
 	for (int i = 0; i < n; i++) {
 		int h = 0;
@@ -41,18 +41,22 @@ vector<int>(2) sort_direct(double(&arr)[n]) {
 	}
 	return k;
 }
-void sort_direct_on(double(&arr)[n]) {
+vector<int> sort_direct_on(double(&arr)[n]) {
+	vector<int>k(2);
 	for (int i = 1; i < n; i++)
 	{
 		int v = arr[i];
 		int x = i;
+		k[0] = k[0] + 1;
 		while ((x > 0) && (arr[x - 1] > v))
 		{
+			k[1] = k[1] + 1;
 			arr[x] = arr[x - 1];
 			x = x - 1;
 		}
 		arr[x] = v;
 	}
+	return k;
 
 }
 void copy_array(double(&arr)[n], double(&arr1)[n]) {
@@ -72,7 +76,9 @@ int main()
 	double b[n];
 	double c[n];
 	gen_array(a);
+	cout << "Generate Array " << endl;
 	print_array(a);
+	cout << "Array a " << endl;
 	copy_array(a, b);
 	copy_array(a, c);
 	sort_direct(a);
