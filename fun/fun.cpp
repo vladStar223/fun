@@ -17,11 +17,20 @@ void vector_gg(double(&arr)[p][p],int k,vector<int>&c){// в задача не �
 		c[i] = s;
 	}
 }
-
+void gen_array(double(&arr)[p][p]) {
+	for (int i = 0; i < p; i++) {
+		for (int j = 0; j < p; j++) {
+			double x = (double)rand() / 588;
+			arr[i][j] = x;
+		}
+	}
+}
 int main()
 {
 	double a[p][p];
+	gen_array(a);
 	vector<int>c(10);
+	vector_gg(a, 2, c);
 
 
 
