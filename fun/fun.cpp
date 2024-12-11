@@ -24,9 +24,20 @@ void gen_array(double(&arr)[p][p]) {
 			arr[i][j] = x;
 		}
 	}
+	print_array(arr);
+}
+void print_array(double(&arr)[p][p]) {
+	for (int i = 0; i < p; i++) {
+		for (int j = 0; j < p; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << "" << endl;
+	}
+	cout << "" << endl;
 }
 int main()
 {
+
 	double a[p][p];
 	gen_array(a);
 	vector<int>c(10);
