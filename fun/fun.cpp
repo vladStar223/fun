@@ -45,7 +45,7 @@ void print_vector(vector<int>& v) {
 
 int main()
 {
-
+	srand(time(NULL));
 	double a[p][p];
 	gen_array(a);
 	vector<int>c(10);
