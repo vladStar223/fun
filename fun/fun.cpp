@@ -20,6 +20,8 @@ void vector_gg(double(&arr)[p][p],int k,vector<int>&c){// в задача не �
 
 int main()
 {
+	double a[p][p];
+	vector<int>c(10);
 
 
 
