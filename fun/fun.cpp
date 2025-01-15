@@ -4,55 +4,33 @@
 #include <iostream>
 #include <vector>
 #include <random>
-
+#include<math.h>
 using namespace std;
-const int p = 4;//тестовые данные из-за условий задачи
 
-void vector_gg(double(&arr)[p][p],int k,vector<int>&c){// в задача не было указан тип вектора с.поэтому был выбран int
-	for (int i = 0; i < k; i++) {
-		double s = 0;
-		for (int j = 1; j < p; j++) {
-			s += arr[i][j];
-		}
-		c[i] = s;
-	}
-}
-void print_array(double(&arr)[p][p]) {
-	for (int i = 0; i < p; i++) {
-		for (int j = 0; j < p; j++) {
-			cout << arr[i][j] << " ";
-		}
-		cout << "" << endl;
-	}
-	cout << "" << endl;
-}
-void gen_array(double(&arr)[p][p]) {
-	for (int i = 0; i < p; i++) {
-		for (int j = 0; j < p; j++) {
-			double x = (double)rand();
-			arr[i][j] = x;
-		}
-	}
-	print_array(arr);
-}
 
-void print_vector(vector<int>& v) {
-	for (int i = 0; i < 10; i++) {
-		cout << v[i] << " ";
+int kor(int k) {
+	int a= pow(2, k);
+	int b = pow(2, k + 1);
+	int k2 = 0;
+	for (int i = a + 1; i < b; i++) {
+		if (i % 3 == 0) {
+			k2 = k2 + 1;
+		}
 	}
-	cout << "" << endl;
-}//print random vector
+	return k;
+}
 
 int main()
 {
-	srand(time(NULL));
-	double a[p][p];
-	gen_array(a);
-	vector<int>c(10);
-	vector_gg(a, 2, c);
-	print_vector(c);
-
-
+	
+	int k = 0;
+	cout << "Input k" << endl;
+	do
+	{
+		cin >> k;
+	} while (k<=0 && k>=6);
+	cout << "Fun" << endl;
+	cout << kor(k) << endl;
 
 
 
