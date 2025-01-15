@@ -5,33 +5,21 @@
 #include <vector>
 #include <random>
 #include<math.h>
+#include<vector>
 using namespace std;
 
 
-int kor(int k) {
-	int a= pow(2, k);
-	int b = pow(2, k + 1);
-	int k2 = 0;
-	for (int i = a + 1; i < b; i++) {
-		if (i % 3 == 0) {
-			k2 = k2 + 1;
-		}
-	}
-	return k;
-}
 
+void generate_vector(vector<int>a) {
+
+	
+}
 int main()
 {
-	
-	int k = 0;
-	cout << "Input k" << endl;
-	do
-	{
-		cin >> k;
-	} while (k<=0 && k>=6);
-	cout << "Fun" << endl;
-	cout << kor(k) << endl;
+	int n = 100;
+	vector<int>a(n);
 
+	
 
 
 
