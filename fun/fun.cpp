@@ -9,16 +9,42 @@
 using namespace std;
 
 
-
-void gen_vector(vector<double>& v) {
-	for (int i = 0; i < 100; i++) {
-		v[i] = rand();
+double f(int w) {
+	return sin(w);
+}
+void gen_vector(vector<int>& v,int n) {
+	for (int i = 0; i < n; i++) {
+		v[i] = rand()/100;
 	}
 }//generate random vector len = n
+void per(double(&f)(int w)) {
+	int n = 100;
+	do
+	{
+		cout << " input n" << endl;
+		cin >> n;
+	} while (n >> 100 && n < 0);
+	vector<int>a(n);
+	gen_vector(a, n);
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << endl;
+	}
+	double s = 0;
+	for (int i = 0; i < n; i++) {
+		s = s + (f(a[i]) * f(a[i]));
+	}
+	cout << "S =" << s<< endl;
+	
+	
+}
 int main()
 {
-	int n = 100;
-	vector<int>a(n);
+	srand(time(NULL));
+	per(f);
+	
+
+
+
 
 	
 
