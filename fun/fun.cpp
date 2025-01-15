@@ -10,10 +10,11 @@ using namespace std;
 
 
 
-void generate_vector(vector<int>a) {
-
-	
-}
+void gen_vector(vector<double>& v) {
+	for (int i = 0; i < 100; i++) {
+		v[i] = rand();
+	}
+}//generate random vector len = n
 int main()
 {
 	int n = 100;
