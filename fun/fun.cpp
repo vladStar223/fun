@@ -7,18 +7,21 @@ set<char> digits = { '1','2','3','4','5','6','7','8','9','0' };
 set<char> simvol = { '-','*','+' };
 //set<char> ruswords = { 'а','б', 'в', 'г' ,'д', 'е', 'ё' ,'ж', 'з', 'и' ,'й' ,'к', 'л', 'м', 'н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я'};
 bool check(string s) {
-     bool check = true;
+    bool check = true;
     for (int i = 0; i < s.length(); i++) {
-        if (words.count((s[i]))==0 && i!=0) {
+        if (words.count((s[i])) == 0 && i != 0) {
             check = false;
             break;
         }
-        if (i == 0) {
-            if (toupper(s[i] != s[i])) {
-                check = false;
-                break;
+        else {
+            if (i == 0) {
+                if (!isupper(s[i]) ){
+                    check = false;
+                    break;
+                }
             }
         }
+        
     }
     return check;
 }
@@ -26,11 +29,11 @@ bool check(string s) {
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    string s1,s2,s3;
-     d bool k = false;
+    string s1, s2, s3;
+    bool k = false;
     cout << "Hello user" << endl;
     do {
-        
+
         cout << "Input Name" << endl;
         cin >> s1;
         if (check(s1) == true) {
@@ -70,6 +73,7 @@ int main()
         }
     } while (k);
     cout << "Good" << endl;
-}
+    
 
+}
 
