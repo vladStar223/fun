@@ -1,42 +1,41 @@
-﻿// fun.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
-#include <iostream>
-#include <vector>
-#include <random>
-#include<math.h>
-#include<string>
+﻿#include <iostream>
+#include <string>
+#include <set>
 using namespace std;
+set<char> words = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+set<char> digits = { '1','2','3','4','5','6','7','8','9','0' };
+set<char> simvol = { '-','*','+' };
+int coin(string s) {
 
-
-string pro(string x) {
-	int k = 1;
-	string y;
-	for (int i = 0; i < x.length(); i++) {
-		if (x[i] == x[i + 1]) {
-			k = k + 1;
-		}
-		else {
-			if (k >= 5) {
-				y = "X(" + to_string(k) + ")";
-				x.replace(i - k + 1, k, y);
-				k = 0;
-				i = 0;
-			}
-		}
-		
-		
-	}
-	return x;
+    int coin = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (digits.count(s[i]) > 0) {
+            coin = coin + 1;
+        }
+        if (simvol.count(s[i]) > 0) {
+            coin = coin + 1;
+        }
+    }
+    return coin;
 }
-void anwer(string x) {
-	string v = pro(x);
-}
-int main() {
-	string x;
-	getline(cin,x);
-	cout << pro(x) << endl;
-
+int main()
+{
+    string s;
+    bool k = false;
+    do {
+        cout << "Hello user" << endl;
+        cout << "Input S" << endl;
+        getline(cin, s);
+        for (int i = 0; i < s.length(); i++) {
+            if (words.count(s[i]) == 0 && simvol.count(s[i]) == 0 && digits.count(s[i]) == 0) {
+                k = true;
+                cout << "Simvols are not good" << endl;
+                break;
+            }
+        }
+    } while (k);
+    cout << "Answer" << endl;
+    cout << coin(s) << endl;
 }
 
 
