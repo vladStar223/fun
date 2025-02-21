@@ -27,7 +27,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     string s1,s2,s3;
-    bool k = false;
+     d bool k = false;
     cout << "Hello user" << endl;
     do {
         
