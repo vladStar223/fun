@@ -5,63 +5,38 @@
 #include <vector>
 #include <random>
 #include<math.h>
-#include<vector>
+#include<string>
 using namespace std;
 
 
-double f(int w) {
-	return sin(w);
+string pro(string x) {
+	int k = 1;
+	string y;
+	for (int i = 0; i < x.length(); i++) {
+		if (x[i] == x[i + 1]) {
+			k = k + 1;
+		}
+		else {
+			if (k >= 5) {
+				y = "X(" + to_string(k) + ")";
+				x.replace(i - k + 1, k, y);
+				k = 0;
+				i = 0;
+			}
+		}
+		
+		
+	}
+	return x;
 }
-void gen_vector(vector<int>& v,int n) {
-	for (int i = 0; i < n; i++) {
-		v[i] = rand()/100;
-	}
-}//generate random vector len = n
-void per(double(&f)(int w)) {
-	int n = 100;
-	do
-	{
-		cout << " input n" << endl;
-		cin >> n;
-	} while (n >> 100 && n < 0);
-	vector<int>a(n);
-	gen_vector(a, n);
-	for (int i = 0; i < n; i++) {
-		cout << a[i] << endl;
-	}
-	double s = 0;
-	for (int i = 0; i < n; i++) {
-		s = s + (f(a[i]) * f(a[i]));
-	}
-	cout << "S =" << s<< endl;
-	
-	
+void anwer(string x) {
+	string v = pro(x);
 }
-int main()
-{
-	srand(time(NULL));
-	per(f);
-	
+int main() {
+	string x;
+	getline(cin,x);
+	cout << pro(x) << endl;
 
-
-
-
-	
-
-
-
-
-
-	
-
-
-	
-	
-	
-
-
-
-  
 }
 
 
