@@ -63,6 +63,20 @@ struct Date
          
     }
 };
+struct Direction
+{
+
+};
+struct AirАlight
+{
+    string route_number;
+    Direction direction;
+    string company_name;
+    //departure date
+    //departure time
+    //date and time of arrival
+    //flight status
+};
    int main()
     {
         string data;
