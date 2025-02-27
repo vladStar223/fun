@@ -42,29 +42,46 @@ struct AirАlight
     Arrival arrival;
 
 };
+void search_where_to_go(AirАlight air[150],string s) {
+    for (int i = 0; i < 150; i++) {
+        
+        if (air[i].direction.where_to_go == s) {
+            cout << air[i].route_number << endl;
+            cout << air[i].direction.where_to_go << endl;
+        }
+    }
+
+}
    int main()
     {
        cout << "Checking file availability" << endl;
         string line;
         string word;
-        AirАlight air_alight;
+        AirАlight air_alight[150];
        ifstream in("data.txt"); // окрываем файл для чтения
+      
        if (in.is_open())
        {
            cout << "The file is open"<< endl;
            cout << "Processing begins" << endl;
+           int i = 0;
            while (getline(in, line))
            {
                stringstream ss(line);
-               ss >> air_alight.route_number;
-               ss >> air_alight.direction.where_from;
-               ss >> air_alight.direction.where_to_go;
-               ss >> air_alight.company_name;
-               ss >> air_alight.flight_status;
-               ss >> air_alight.departure.date;
-               ss >> air_alight.departure.time;
-               ss >> air_alight.arrival.date;
-               ss >> air_alight.arrival.time;
+               ss >> air_alight[i].route_number;
+               //cout << air_alight[0].route_number << endl;
+               ss >> air_alight[i].direction.where_from;
+               ss >> air_alight[i].direction.where_to_go;
+               ss >> air_alight[i].company_name;
+               ss >> air_alight[i].flight_status;
+               ss >> air_alight[i].departure.date;
+               ss >> air_alight[i].departure.time;
+               ss >> air_alight[i].arrival.date;
+               ss >> air_alight[i].arrival.time;
+               ss.clear();
+               //cout << air_alight[5].direction.where_to_go << endl;
+               i = i + 1;
+               
 
            }
 
@@ -72,6 +89,9 @@ struct AirАlight
        else {
            cout << "Error in opening the file" << endl;
        }
+       cout << "Processing ends" << endl;
+       search_where_to_go(air_alight, "Moscow");
        in.close();     // закрываем файл
+
 
     }
